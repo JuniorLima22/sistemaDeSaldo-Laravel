@@ -130,9 +130,25 @@ return [
     'menu' => [
         ['header' => 'MENU'],
         [
-            'text'        => 'Home',
+            'text'        => 'Dashboard',
             'url'         => 'admin',
-            'icon'        => 'fas fa-home',
+            'icon'        => 'fas fa-tachometer-alt',
+        ],
+        [
+            'text' => 'Financeiro',
+            'icon' => 'far fa-money-bill-alt',
+            'submenu' => [
+                [
+                    'text' => 'Saldo',
+                    'url' => 'admin/balance',
+                    'icon' => 'fas fa-credit-card',
+                ],
+                [
+                    'text' => 'Histórico',
+                    'url' => 'admin/historic',
+                    'icon' => 'fas fa-history',
+                ],
+            ],
         ],
     ],
 

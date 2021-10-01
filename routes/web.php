@@ -11,8 +11,9 @@
 |
 */
 
-Route::group(['middleware'=>'auth', 'namespace'=>'Admin'], function(){
-    Route::get('admin', ['as'=>'admin.home', 'uses'=>'AdminController@index']);
+Route::group(['middleware'=>'auth', 'namespace'=>'Admin', 'prefix'=>'admin'], function(){
+    Route::get('/', ['as'=>'admin.home', 'uses'=>'AdminController@index']);
+    Route::get('balance', ['as'=>'admin.balance', 'uses'=>'BalanceController@index']);
 });
 
 
