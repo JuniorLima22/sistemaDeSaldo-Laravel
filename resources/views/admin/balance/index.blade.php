@@ -21,7 +21,7 @@
             <div class="col-lg-6 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><sup style="font-size: 20px">R$</sup> 90,00</h3>
+                        <h3><sup style="font-size: 20px">R$</sup> {{ number_format($amount, 2, ',','.') }}</h3>
                     </div>
                     <div class="icon">
                         <i class="ion ion-cash"></i>
