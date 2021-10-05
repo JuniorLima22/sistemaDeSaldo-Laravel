@@ -18,7 +18,10 @@
             <a href="" class="btn btn-danger"><i class="fas fa-cart-arrow-down"></i> Sacar</a>
         </div>
         <div class="box-body">
-            <div class="col-lg-6 col-xs-6">
+
+            @include('admin.includes.alerts')
+
+            <div class="col-lg-6 col-xs-12">
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3><sup style="font-size: 20px">R$</sup> {{ number_format($amount, 2, ',','.') }}</h3>

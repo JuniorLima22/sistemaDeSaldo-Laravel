@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Sistema</b> $aldo',
+    'logo' => '<b>Sistema</b> de $aldo',
 
     'logo_mini' => '<b>S</b>$',
 
@@ -256,6 +256,17 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Custom Scripts',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'js/function-custom.js',
                 ],
             ],
         ],
