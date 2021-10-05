@@ -16,6 +16,8 @@ Route::group(['middleware'=>'auth', 'namespace'=>'Admin', 'prefix'=>'admin'], fu
     Route::get('balance', ['as'=>'admin.balance', 'uses'=>'BalanceController@index']);
     Route::get('deposit', ['as'=>'balance.deposit', 'uses'=>'BalanceController@deposit']);
     Route::post('deposit', ['as'=>'deposit.store', 'uses'=>'BalanceController@depositStore']);
+    Route::get('withdraw', ['as'=>'balance.withdraw', 'uses'=>'BalanceController@withdraw']);
+    Route::post('withdraw', ['as'=>'withdraw.store', 'uses'=>'BalanceController@withdrawStore']);
 });
 
 
