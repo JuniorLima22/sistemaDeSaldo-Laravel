@@ -21,7 +21,7 @@
                     {!! csrf_field() !!}
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <select name="type" class="form-control pull-right">
-                            <option value="" disabled selected>Selecione o Tipo</option>
+                            <option value="">Selecione o Tipo</option>
                             @foreach ($types as $key => $type)
                                 <option value="{{ $key }}">{{ $type }}</option>
                             @endforeach
@@ -97,7 +97,11 @@
 
         <div class="box-footer clearfix">
             <div class="pull-right">
-                {!! $historics->links() !!}
+                @if (isset($dataForm))
+                    {!! $historics->appends($dataForm)->links() !!}
+                @else
+                    {!! $historics->links() !!}
+                @endif
             </div>
         </div>
         
