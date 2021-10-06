@@ -78,5 +78,12 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="box-footer clearfix">
+            <div class="pull-right">
+                {!! $historics->links() !!}
+            </div>
+        </div>
+        
     </div>
 @stop
