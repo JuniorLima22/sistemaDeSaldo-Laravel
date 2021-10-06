@@ -22,6 +22,7 @@ Route::group(['middleware'=>'auth', 'namespace'=>'Admin', 'prefix'=>'admin'], fu
     Route::post('confirm-transfer', ['as'=>'confirm.transfer', 'uses'=>'BalanceController@confirmTransfer']);
     Route::post('transfer', ['as'=>'transfer.store', 'uses'=>'BalanceController@transferStore']);
     Route::get('historic', ['as'=>'admin.historic', 'uses'=>'BalanceController@historic']);
+    Route::post('historic', ['as'=>'historic.search', 'uses'=>'BalanceController@searchHistoric']);
 });
 
 

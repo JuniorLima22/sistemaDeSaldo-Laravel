@@ -16,15 +16,31 @@
         <div class="box-header">
           <h3 class="box-title">Histórico</h3>
 
-          <div class="box-tools">
-            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control pull-right" placeholder="Pesquisar">
+            <div class="box-tools">
+                <form method="POST" action="{{ route('historic.search') }}" class="form form-inline">
+                    {!! csrf_field() !!}
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <select name="type" class="form-control pull-right">
+                            <option value="" disabled selected>Selecione o Tipo</option>
+                            @foreach ($types as $key => $type)
+                                <option value="{{ $key }}">{{ $type }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-              <div class="input-group-btn">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="date" name="date" class="form-control pull-right">
+                    </div>
+
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="id" class="form-control pull-right" placeholder="ID">
+                        
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
         </div>
 
         <div class="box-body table-responsive no-padding">
@@ -37,7 +53,7 @@
                         <th>Total Depois</th>
                         <th>Tipo</th>
                         <th>Data</th>
-                        <th>Transferência (Recebedor)</th>
+                        <th>Transferência</th>
                     </tr>
                 </thead>
                 <tbody>
