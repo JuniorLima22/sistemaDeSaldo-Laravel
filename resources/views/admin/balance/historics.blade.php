@@ -49,15 +49,26 @@
                             <td>{{ number_format($historic->total_after, 2, ',', '.') }}</td>
                             <td class="text-uppercase">
                                 @if ($historic->type == 'I')
-                                    <span class="label label-success">Entrada</span>
+                                    @if ($historic->user_id_transaction != null)
+                                        <span class="label label-warning">Recebido</span>
+                                    @else
+                                        <span class="label label-success">Recarga</span>
+                                    @endif
                                 @elseif ($historic->type == 'O')
-                                    <span class="label label-danger">Saída</span>
+                                    <span class="label label-danger">Saque</span>
                                 @elseif ($historic->type == 'T')
                                     <span class="label label-info">Transferência</span>
                                 @endif
+                                {{-- {{ $historic->type($historic->type) }} --}}
                             </td>
-                            <td>{{ date('d/m/Y', strtotime($historic->date)) }}</td>
-                            <td>{{ $historic->user_id_transaction }}</td>
+                            <td>{{ $historic->date }}</td>
+                            <td>
+                                @if ($historic->user_id_transaction)
+                                    {{ $historic->userSender->name }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                         </tr>
                     @empty
                         <tr>
