@@ -10,14 +10,15 @@
 <div class="row">
     <div class="col-md-12">
         <div class="box box-widget widget-user">
-          <!-- Add the bg color to the header using any of the bg-* classes -->
-          <div class="widget-user-header bg-aqua-active">
-            <h3 class="widget-user-username">{{ auth()->user()->name }}</h3>
-            <h5 class="widget-user-desc">{{ auth()->user()->email }}</h5>
-          </div>
-          <div class="widget-user-image">
-            <img class="img-circle" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png" alt="User Avatar">
-          </div>
+          
+            <div class="widget-user-header bg-aqua-active">
+                <h3 class="widget-user-username">{{ auth()->user()->name }}</h3>
+                <h5 class="widget-user-desc">{{ auth()->user()->email }}</h5>
+            </div>
+            <div class="widget-user-image">
+                {{-- <img class="img-circle" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png" alt="User Avatar"> --}}
+                <img class="img-circle" src="{{ asset('img/user-default.webp') }}" alt="User Avatar">
+            </div>
             <div class="box-footer">
                 <div class="row">
                     <div class="col-sm-4 border-right">
@@ -25,30 +26,30 @@
                             <h5 class="description-header">3,200</h5>
                             <span class="description-text">Recarga</span>
                         </div>
-                        <!-- /.description-block -->
+
                     </div>
-                    <!-- /.col -->
+
                     <div class="col-sm-4 border-right">
                         <div class="description-block">
                             <h5 class="description-header">13,000</h5>
                             <span class="description-text">Saque</span>
                         </div>
-                        <!-- /.description-block -->
+                        
                     </div>
-                    <!-- /.col -->
+                    
                     <div class="col-sm-4">
                         <div class="description-block">
                             <h5 class="description-header">35</h5>
                             <span class="description-text">Tranferência</span>
                         </div>
-                        <!-- /.description-block -->
+                        
                     </div>
-                    <!-- /.col -->
+                    
                 </div>
-                <!-- /.row -->
+                
             </div>
         </div>
-        <!-- /.widget-user -->
+        
     </div>
 </div>
 
@@ -59,6 +60,9 @@
                 <h3 class="box-title">Perfil</h3>
             </div>
             <div class="box-body">
+                
+                @include('admin.includes.alerts')
+
                 <form method="POST" action="{{ route('profile.update') }}" class="form-horizontal" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="form-group">
