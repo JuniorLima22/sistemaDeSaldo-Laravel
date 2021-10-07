@@ -25,6 +25,8 @@ Route::group(['middleware'=>'auth', 'namespace'=>'Admin', 'prefix'=>'admin'], fu
     Route::any('historic-search', ['as'=>'historic.search', 'uses'=>'BalanceController@searchHistoric']);
 });
 
+Route::get('meu-perfil', ['as'=>'profile', 'uses'=>'Admin\UserController@profile', 'middleware'=>'auth']);
+Route::post('atualizar-perfil', ['as'=>'profile.update', 'uses'=>'Admin\UserController@profileUpdate', 'middleware'=>'auth']);
 
 Route::get('/', ['as'=>'site.home', 'uses'=>'Site\SiteController@index']);
 
