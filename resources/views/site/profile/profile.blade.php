@@ -16,8 +16,11 @@
                 <h5 class="widget-user-desc">{{ auth()->user()->email }}</h5>
             </div>
             <div class="widget-user-image">
-                {{-- <img class="img-circle" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png" alt="User Avatar"> --}}
-                <img class="img-circle" src="{{ asset('img/user-default.webp') }}" alt="User Avatar">
+                @if (auth()->user()->image)
+                    <img class="img-circle" src="{{ asset('storage/users/'.auth()->user()->image) }}" alt="{{ auth()->user()->name }}}}" style="max-width: 800px">
+                @else
+                    <img class="img-circle" src="{{ asset('img/user-default.webp') }}" alt="User Avatar">
+                @endif
             </div>
             <div class="box-footer">
                 <div class="row">
@@ -92,6 +95,7 @@
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
