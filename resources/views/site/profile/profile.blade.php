@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-sm-4 border-right">
                         <div class="description-block">
-                            <h5 class="description-header">3,200</h5>
+                            <h5 class="description-header">R$ {{ number_format($recarga, 2, ',', '.') }}</h5>
                             <span class="description-text">Recarga</span>
                         </div>
 
@@ -34,7 +34,7 @@
 
                     <div class="col-sm-4 border-right">
                         <div class="description-block">
-                            <h5 class="description-header">13,000</h5>
+                            <h5 class="description-header">R$ {{ number_format($saque, 2, ',', '.') }}</h5>
                             <span class="description-text">Saque</span>
                         </div>
                         
@@ -42,7 +42,7 @@
                     
                     <div class="col-sm-4">
                         <div class="description-block">
-                            <h5 class="description-header">35</h5>
+                            <h5 class="description-header">{{ $transferencia }}</h5>
                             <span class="description-text">Tranferência</span>
                         </div>
                         

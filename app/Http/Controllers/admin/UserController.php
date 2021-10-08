@@ -10,7 +10,11 @@ class UserController extends Controller
 {
     public function profile()
     {
-        return view('site.profile.profile');
+        $recarga = auth()->user()->historics()->where('type', 'I')->sum('amount');
+        $saque = auth()->user()->historics()->where('type', 'O')->sum('amount');
+        $transferencia = auth()->user()->historics()->where('type', 'T')->count();
+
+        return view('site.profile.profile', compact('recarga', 'saque', 'transferencia'));
     }
 
     public function profileUpdate(Request $request)
