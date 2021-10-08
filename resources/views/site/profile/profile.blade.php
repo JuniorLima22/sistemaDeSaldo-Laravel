@@ -86,7 +86,7 @@
                         <label for="password" class="col-sm-2 control-label">Senha</label>
 
                         <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Senha">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Senha" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,6 +96,16 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="delete_image"> Deletar Imagem do Perfil
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-primary">Atualizar Perfil</button>

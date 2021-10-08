@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -24,14 +25,16 @@ class UserController extends Controller
             unset($data['password']);
         }
 
-        $data['image'] = $user->image;
+        if (isset($data['delete_image'])) {
+            $data['image'] = null;
+            Storage::delete('users/'.$user->image);
+        }else{
+            $data['image'] = $user->image;
+        }
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($user->image) {
-                $name = $user->image;
-            }else{
-                $name = $user->id.'-'.kebab_case($user->name);
-            }
+
+            $name = $user->id.'-'.kebab_case($user->name);
 
             $extension = $request->image->extension();
             $nameFile = "{$name}.{$extension}";
